@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <tab id="o2ti" translate="label" sortOrder="100">
+            <label><![CDATA[<span class='o2ti-logo'>O2TI</span>]]></label>
+        </tab>
+        <section id="o2ti_moipextended" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>o2ti_moipextendedsplit</class>
+            <label>Moip Extended</label>
+            <tab>o2ti</tab>
+            <resource>O2TI_MoipExtendedSplit::moipextendedsplit</resource>
+            <group id="module" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Moip Extended - Split</label>
+                <field id="use_split_extended" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use Split</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>o2ti/moip_extended/use_split</config_path>
+                </field>
+                <field id="secondary_mpa_extended" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
+                    <label>MPA - Secondary</label>
+                    <config_path>o2ti/moip_extended/secondary_mpa</config_path>
+                </field>
+                <field id="secondary_fee_payor" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
+                    <label>Fee Payor</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>o2ti/moip_extended/fee_payor</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

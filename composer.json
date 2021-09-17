@@ -1,0 +1,19 @@
+{
+  "name": "o2ti/moip-extended-split",
+  "description": "O2TI - Alterar recebedor no módulo Moip_Magento2",
+  "require": {
+    "php": ">=7.0",
+    "moip/magento2": ">=1.1.2"
+  },
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+
+    }
+  }
+}
