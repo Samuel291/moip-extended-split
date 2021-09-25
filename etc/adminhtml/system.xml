@@ -25,13 +25,9 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <config_path>o2ti/moip_extended/fee_payor</config_path>
                 </field>
-                <field id="type_condition_split" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
-                    <label>Type Condition</label>
-                    <config_path>o2ti/moip_extended/type_condition</config_path>
-                </field>
-                <field id="value_condition_split" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
-                    <label>Value Condition</label>
-                    <config_path>o2ti/moip_extended/value_condition</config_path>
+                <field id="match_shipping_method" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
+                    <label>Match Shipping Method</label>
+                    <config_path>o2ti/moip_extended/shipping_method</config_path>
                 </field>
             </group>
         </section>
