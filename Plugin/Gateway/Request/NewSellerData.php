@@ -79,6 +79,7 @@ class NewSellerData
         \Closure $proceed,
         $buildSubject
     ) {
+        $quote = $this->subjectReader->getQuote();
         $paymentDO = $this->subjectReader->readPayment($buildSubject);
         $payment = $paymentDO->getPayment();
 
@@ -91,8 +92,17 @@ class NewSellerData
         $order = $paymentDO->getOrder();
 
         $storeId = $order->getStoreId();
-        
+
         if(!$this->getConfigValueExtended('use_split', $storeId)) {
+            return $result;
+        }
+        
+        $typeCondition = $this->getConfigValueExtended('type_condition', $storeId);
+        $valueCondition = $this->getConfigValueExtended('value_condition', $storeId);
+        
+        $shippingMethod = $this->getShippingMethodFromQuote($quote);
+
+        if($typeCondition == 'shipping' && $shippingMethod != $valueCondition) {
             return $result;
         }
 
@@ -133,6 +143,20 @@ class NewSellerData
             ScopeInterface::SCOPE_STORE,
             $storeId
         );
+    }
+    
+    /**
+     * Gets the Shipping Method from Quote.
+     *
+     * @param \Magento\Quote\Model\Quote $quote
+     * @return string
+     */
+    private function getShippingMethodFromQuote($quote)
+    {
+        if($quote) {
+            return $quote->getShippingAddress()->getShippingMethod();
+        }
+        return '';
     }
 }
 
