@@ -97,12 +97,9 @@ class NewSellerData
             return $result;
         }
         
-        $typeCondition = $this->getConfigValueExtended('type_condition', $storeId);
-        $valueCondition = $this->getConfigValueExtended('value_condition', $storeId);
-        
         $shippingMethod = $this->getShippingMethodFromQuote($quote);
 
-        if($typeCondition == 'shipping' && $shippingMethod != $valueCondition) {
+        if($shippingMethod !=  $this->getConfigValueExtended('shipping_method', $storeId)) {
             return $result;
         }
 
